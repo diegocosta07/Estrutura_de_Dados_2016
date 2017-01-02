@@ -76,13 +76,15 @@ int compara(char str[], char str2[]){
         return 0;
 }
 
-void lst_conta(Lista* l,Lista** dicionario){//função para contar as repetições das palavras em cada linha
+/*função para contar as repetições das palavras em cada linha*/
+void lst_conta(Lista* l,Lista** dicionario){
     Lista* p;
     Lista* aux;
-    int repet;
+    int repet; //varaiavel para contabilizar as repetições
     for(p=l; p!=NULL; p=p->prox){
-        repet = 1;
+        repet = 1;//inicializaão das repetições com 1
         for(aux=p->prox; aux!=NULL;aux=aux->prox){
+            /* se as palavras forem iguais e estiverem na mesma linha 'repet' incrementa 1*/
             if(compara(p->info,aux->info)==0){
                 if(p->linha==aux->linha){
                     repet++;
@@ -90,31 +92,40 @@ void lst_conta(Lista* l,Lista** dicionario){//função para contar as repetições d
                 }
             }
         }
-        if(compara(p->info,"vvisto")!=0)//se for uma palavra ja contabilizada não adiciona a lista
+        /*se for uma palavra ja contabilizada ela não é adiciona a lista*/
+        /* Se a alguma palavra for='vvisto' ela não é adicionada*/
+        if(compara(p->info,"vvisto")!=0)
             lst_insere(dicionario, p->info, p->linha, repet);
     }
 }
+/*função para verificação de inserção no novoDic*/
+int verifica_Insercao(Lista* l, char str[]){
+    int a = 0;//funciona como um sinalizador para saber se a palvra ja foi inserida ou não
+    Lista* verifica;
+        for(verifica=l;verifica!=NULL;verifica=verifica->prox){
+            /*se a palavra ja está em novoDic então a=1 para sinalizar que tal palavra já está inserida*/
+            if(compara(verifica->info,str)==0)
+                a = 1;
+        }
+    return a;//a=0 palavra não inserida, a=1 palavra já inserida
+}
 
+/*Esta função cria uma nova lista com o encadeamento acertado em as palavras*/
 void organiza_Dicionario(Lista** dic){
-    Lista* novoDic;
+    Lista* novoDic; //esse será o novo dicionario
     novoDic = lst_cria();
     Lista* p;
     Lista* q;
-    Lista* verifica;
-    int a;//variavel para saber se a palavra ja foi inserida no novoDci
     for(p=*dic; p!=NULL; p=p->prox){
-        a = 0;
-        for(verifica=novoDic;verifica!=NULL;verifica=verifica->prox){
-            if(compara(verifica->info,p->info)==0)
-                a = 1;
-        }
-        if(a==0) //se a=0 insere a palavra
+        if(verifica_Insercao(novoDic,p->info)==0) //se a palavra ainda não estiver em novoDic ela será adicionada agora
             lst_insere(&novoDic,p->info,p->linha,p->qtd_repet);
         for(q=p->prox;q!=NULL;q=q->prox){
+            /*Se a palavra estiver em outras linhas ela é inserida no novoDic*/
             if(compara(p->info,q->info)==0){
                 lst_insere(&novoDic,q->info,q->linha,q->qtd_repet);
             }
         }
     }
-    *dic = novoDic;
+    lst_libera(*dic);//libera a memório do dicionario antigo
+    *dic = novoDic;//atualiza o Dicionario principal
 }
