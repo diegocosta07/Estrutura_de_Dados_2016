@@ -18,7 +18,8 @@ void lst_insere(Lista** l, char* v, int linha, int qtd_repet){
 void lst_imprime(Lista* l){
     Lista* p;
     for(p=l; p != NULL; p=p->prox){
-        printf("A palavra %s apareceu %d vezes na linha %d \n",p->info,p->qtd_repet,p->linha);
+        printf("Palavra: %s\n%d vez(es)\nLinha %d \n",p->info,p->qtd_repet,p->linha);
+        printf("---------------------------------------------------------------------\n");
     }
 }
 
@@ -96,15 +97,24 @@ void lst_conta(Lista* l,Lista** dicionario){//função para contar as repetições d
 
 void organiza_Dicionario(Lista** dic){
     Lista* novoDic;
+    novoDic = lst_cria();
     Lista* p;
     Lista* q;
-    for(p=*dic;p!=NULL;p->prox){
-        lst_insere(&novoDic,p->info,p->linha,p->qtd_repet);
-        for(q=p->prox;q!=NULL;q->prox){
+    Lista* verifica;
+    int a;//variavel para saber se a palavra ja foi inserida no novoDci
+    for(p=*dic; p!=NULL; p=p->prox){
+        a = 0;
+        for(verifica=novoDic;verifica!=NULL;verifica=verifica->prox){
+            if(compara(verifica->info,p->info)==0)
+                a = 1;
+        }
+        if(a==0) //se a=0 insere a palavra
+            lst_insere(&novoDic,p->info,p->linha,p->qtd_repet);
+        for(q=p->prox;q!=NULL;q=q->prox){
             if(compara(p->info,q->info)==0){
                 lst_insere(&novoDic,q->info,q->linha,q->qtd_repet);
             }
         }
     }
-    *dic=novoDic;
+    *dic = novoDic;
 }
