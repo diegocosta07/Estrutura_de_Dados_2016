@@ -1,12 +1,12 @@
 # depslib dependency file v1.0
-1483378004 source:c:\users\diego\documents\estrutura de dados\estrutura_de_dados_project\estrutura_de_dados_2016\dicionario\lista.c
+1483379924 source:c:\users\diego\documents\estrutura de dados\estrutura_de_dados_project\estrutura_de_dados_2016\dicionario\lista.c
 	<stdio.h>
 	<stdlib.h>
 	"Lista.h"
 
 1483376289 c:\users\diego\documents\estrutura de dados\estrutura_de_dados_project\estrutura_de_dados_2016\dicionario\lista.h
 
-1483378502 source:c:\users\diego\documents\estrutura de dados\estrutura_de_dados_project\estrutura_de_dados_2016\dicionario\main.c
+1483379976 source:c:\users\diego\documents\estrutura de dados\estrutura_de_dados_project\estrutura_de_dados_2016\dicionario\main.c
 	<stdio.h>
 	<stdlib.h>
 	"Lista.h"

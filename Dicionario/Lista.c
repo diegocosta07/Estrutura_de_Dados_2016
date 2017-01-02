@@ -17,9 +17,16 @@ void lst_insere(Lista** l, char* v, int linha, int qtd_repet){
 
 void lst_imprime(Lista* l){
     Lista* p;
-    for(p=l; p != NULL; p=p->prox){
-        printf("Palavra: %s\n%d vez(es)\nLinha %d \n",p->info,p->qtd_repet,p->linha);
-        printf("---------------------------------------------------------------------\n");
+    Lista* ant = l;
+    printf("Palavra %s: (%d, %d)",l->info,l->linha,l->qtd_repet);
+    for(p=l->prox; p != NULL; p=p->prox){
+        if(compara(p->info,ant->info)==0){
+                printf(", (%d, %d)",p->linha,p->qtd_repet);
+        }
+        else{
+            printf("\nPalavra %s: (%d, %d)",p->info,p->linha,p->qtd_repet);
+        }
+        ant=p;
     }
 }
 

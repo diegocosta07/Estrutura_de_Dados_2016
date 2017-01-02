@@ -41,5 +41,7 @@ int main()
     lst_libera(l);
     lst_libera(dicionario);
     fclose(arq);
+    printf("\n\n");
+    system("pause");
     return 0;
 }
