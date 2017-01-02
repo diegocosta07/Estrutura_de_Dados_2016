@@ -1,6 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "Lista.h"
+
+/* Aluno: Diego Santos Costa
+ * Disciplina: Estrutura de Dados I
+ */
 int main()
 {
     FILE* arq = fopen("teste.txt","r");
