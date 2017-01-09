@@ -1,10 +1,10 @@
 O algoritmo foi desesnvolvido utilizando a IDE CodeBlocks.
-Instruções de uso:
-	1) abra a pasta do projeto e enccontre o arquivo teste.txt
+InstruÃ§Ãµes de uso:
+	1) abra a pasta do projeto e encontre o arquivo teste.txt
 	2) abra-o e digite o que quiser nele e salve-o na mesma pasta do projeto.
-	3) Exectute o algoritmo normamelte agora, deverá funcionar.
+	3) Exectute o algoritmo normamelte agora, deverÃ¡ funcionar.
 
-OBSERVAÇÕES IMPORTANTES:
-	O arquivo teste.txt NÃO deve possuir espaço(s) no fim de cada uma de suas linhas e nem tabeamento, pois interferirá na correta execução do algoritmo.
-	Não deixe linhas vazias/em branco(tecla enter) no arquivo.
-	O algormitmo difere letras maiúsculas de minúsculas.
+OBSERVAÃ‡Ã•ES IMPORTANTES:
+	O arquivo teste.txt NÃƒO deve possuir espaÃ§o(s) no inÃ­cio ou fim de cada uma de suas linhas e nem tabeamento, pois interferirÃ¡ na correta execuÃ§Ã£o do algoritmo.
+	NÃ£o deixe linhas vazias/em branco(tecla enter) no arquivo.
+	O algormitmo difere letras maiÃºsculas de minÃºsculas.
